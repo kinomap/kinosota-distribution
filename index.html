@@ -6,15 +6,245 @@
 <title>KINOSOTA</title>
 
 <style>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KINOSOTA</title>
+<style>
 html, body {
     margin: 0;
     padding: 0;
     width: 100%;
     min-height: 100%;
-    background: #111827;
+    background: #06152b;
     color: #ffffff;
     font-family: Arial, Helvetica, sans-serif;
 }
+
+body {
+    overflow: hidden;
+}
+
+.page {
+    position: relative;
+    min-height: 100vh;
+    padding: 42px 60px;
+    box-sizing: border-box;
+}
+
+.back {
+    position: absolute;
+    top: 28px;
+    right: 38px;
+    display: inline-block;
+    padding: 13px 23px;
+    border: 1px solid #3b9cff;
+    border-radius: 24px;
+    background: #102b4d;
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.back:hover,
+.back:focus {
+    background: #174a7d;
+    border-color: #75bdff;
+}
+
+.brand {
+    margin-top: 8px;
+    font-size: 48px;
+    font-weight: bold;
+    letter-spacing: 5px;
+}
+
+.tagline {
+    margin-top: 7px;
+    font-size: 23px;
+    color: #9bdcff;
+}
+
+.intro {
+    margin-top: 32px;
+    text-align: center;
+}
+
+.intro-title {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.intro-text {
+    margin-top: 7px;
+    font-size: 18px;
+    color: #b8cce2;
+}
+
+.cards {
+    width: 900px;
+    max-width: 90%;
+    margin: 27px auto 0 auto;
+    text-align: center;
+}
+
+.card {
+    display: inline-block;
+    vertical-align: top;
+    width: 390px;
+    margin: 0 15px;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.card-image {
+    display: block;
+    width: 390px;
+    height: 390px;
+    border: 2px solid #31587d;
+    border-radius: 18px;
+    object-fit: cover;
+}
+
+.card:hover .card-image,
+.card:focus .card-image {
+    border-color: #56b4ff;
+}
+
+.card.app:hover .card-image,
+.card.app:focus .card-image {
+    border-color: #00eaff;
+}
+
+.card-title {
+    margin-top: 13px;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.card-text {
+    margin-top: 6px;
+    font-size: 16px;
+    color: #9bdcff;
+}
+
+.footer {
+    margin-top: 22px;
+    text-align: center;
+    font-size: 15px;
+    letter-spacing: 5px;
+    color: #7894ad;
+}
+
+@media screen and (max-width: 1000px) {
+    .page {
+        padding: 30px;
+    }
+
+    .brand {
+        font-size: 40px;
+    }
+
+    .cards {
+        width: 100%;
+    }
+
+    .card {
+        width: 330px;
+        margin: 0 8px;
+    }
+
+    .card-image {
+        width: 330px;
+        height: 330px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="page">
+
+    <a class="back"
+       href="#"
+       onclick="exitToRootApp(); return false;">
+        ← НАЗАД В MSX
+    </a>
+
+    <div class="brand">KINOSOTA</div>
+    <div class="tagline">Ваше кино. Ваша коллекция.</div>
+
+    <div class="intro">
+        <div class="intro-title">Добро пожаловать в KINOSOTA</div>
+        <div class="intro-text">
+            Выберите способ просмотра
+        </div>
+    </div>
+
+    <div class="cards">
+
+        <a class="card app"
+           href="#"
+           onclick="openKinosota(event);">
+
+            <img class="card-image"
+                 src="kinosota_app.jpg"
+                 alt="KINOSOTA">
+
+            <div class="card-title">ВОЙТИ В KINOSOTA</div>
+            <div class="card-text">
+                Фильмы и сериалы на большом экране
+            </div>
+        </a>
+
+        <a class="card"
+           href="#"
+           onclick="installAndroidTV(event);">
+
+            <img class="card-image"
+                 src="kinosota_android_tv.jpg"
+                 alt="KINOSOTA Android TV">
+
+            <div class="card-title">УСТАНОВИТЬ НА ANDROID TV</div>
+            <div class="card-text">
+                KINOSOTA всегда с вами
+            </div>
+        </a>
+
+    </div>
+
+    <div class="footer">БОЛЬШЕ ЧЕМ ПРОСТО КИНО</div>
+
+</div>
+
+<script>
+var KINOSOTA_APP_URL = "https://www.kinosota.devs.surf/app";
+
+function openKinosota(event) {
+    if (event) {
+        event.preventDefault();
+    }
+    window.location.href = KINOSOTA_APP_URL;
+}
+
+function installAndroidTV(event) {
+    if (event) {
+        event.preventDefault();
+    }
+    /* Пока APK URL не назначен. */
+}
+
+function exitToRootApp() {
+    window.history.go(1 - window.history.length);
+}
+</script>
+
+</body>
+</html>
 
 body {
     overflow: hidden;
