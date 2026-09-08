@@ -1,5 +1,5 @@
 {
   "name": "KINOSOTA",
   "version": "1.0.0",
-  "parameter": "menu:https://www.kinosota.devs.surf/msx/menu.json"
+  "parameter": "menu:https://www.kinosota.devs.surf/menu.json"
 }
