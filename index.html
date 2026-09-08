@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>KINOSOTA</title>
 
 <style>
@@ -9,77 +10,204 @@ html, body {
     margin: 0;
     padding: 0;
     width: 100%;
-    height: 100%;
-    background: #ffffff;
-    color: #000000;
-    font-family: Arial, sans-serif;
+    min-height: 100%;
+    background: #111827;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    overflow: hidden;
 }
 
 .page {
-    padding: 40px;
+    position: relative;
+    min-height: 100vh;
+    padding: 55px 70px;
+    box-sizing: border-box;
 }
 
-h1 {
-    margin: 0 0 30px 0;
-    font-size: 42px;
-    color: #000000;
+/* Modern-looking MSX exit button, using only old-browser-safe CSS */
+.back {
+    position: absolute;
+    top: 32px;
+    right: 42px;
+    display: inline-block;
+    padding: 13px 22px;
+    border: 1px solid #64748b;
+    border-radius: 22px;
+    background: #1e293b;
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: bold;
+    text-decoration: none;
+    letter-spacing: 0.3px;
 }
 
-p {
-    font-size: 24px;
-    color: #000000;
+.back:hover,
+.back:focus {
+    background: #334155;
+    border-color: #94a3b8;
+    color: #ffffff;
+}
+
+.brand {
+    margin-top: 20px;
+    font-size: 52px;
+    font-weight: bold;
+    letter-spacing: 5px;
+    color: #ffffff;
+}
+
+.tagline {
+    margin-top: 12px;
+    font-size: 25px;
+    color: #cbd5e1;
+}
+
+.welcome {
+    margin-top: 58px;
+    max-width: 850px;
+}
+
+.welcome-title {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 14px;
+    color: #ffffff;
+}
+
+.description {
+    font-size: 21px;
+    line-height: 1.5;
+    color: #cbd5e1;
+    max-width: 760px;
+}
+
+.actions {
+    margin-top: 38px;
 }
 
 .button {
     display: inline-block;
-    padding: 18px 30px;
-    margin: 10px;
-    border: 2px solid #000000;
-    background: #eeeeee;
-    color: #000000;
-    font-size: 22px;
+    min-width: 270px;
+    margin-right: 18px;
+    margin-bottom: 18px;
+    padding: 19px 28px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    border: 1px solid #64748b;
+    background: #1e293b;
+    color: #ffffff;
+    font-size: 21px;
+    font-weight: bold;
+    text-align: center;
     text-decoration: none;
 }
 
-.button:hover {
-    background: #cccccc;
+.button:hover,
+.button:focus {
+    background: #334155;
+    border-color: #94a3b8;
+    color: #ffffff;
 }
 
-.back {
-    position: absolute;
-    top: 20px;
-    right: 20px;
+.primary {
+    background: #2563eb;
+    border-color: #3b82f6;
 }
+
+.primary:hover,
+.primary:focus {
+    background: #1d4ed8;
+    border-color: #60a5fa;
+}
+
+.info {
+    margin-top: 52px;
+    padding-top: 25px;
+    border-top: 1px solid #334155;
+    max-width: 900px;
+}
+
+.info-title {
+    font-size: 19px;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 9px;
+}
+
+.info-text {
+    font-size: 17px;
+    line-height: 1.45;
+    color: #94a3b8;
+}
+
+/* Avoid modern CSS effects: this page is intentionally TV-browser compatible */
 </style>
 </head>
 
 <body>
 
-<a class="button back"
-   href="#"
-   onclick="exitToRootApp(); return false;">
-    ← НАЗАД В MSX
-</a>
-
 <div class="page">
 
-    <h1>KINOSOTA</h1>
-
-    <p>Ваше кино. Ваша коллекция.</p>
-
-    <p>Добро пожаловать в KINOSOTA.</p>
-
-    <a class="button" href="#">
-        ВОЙТИ В KINOSOTA
+    <a class="back"
+       href="#"
+       onclick="exitToRootApp(); return false;">
+        ← НАЗАД В MSX
     </a>
 
-    <a class="button" href="#">
-        УСТАНОВИТЬ НА ANDROID TV
-    </a>
+    <div class="brand">KINOSOTA</div>
+
+    <div class="tagline">
+        Ваше кино. Ваша коллекция.
+    </div>
+
+    <div class="welcome">
+        <div class="welcome-title">
+            Добро пожаловать в KINOSOTA
+        </div>
+
+        <div class="description">
+            Смотрите фильмы и сериалы на большом экране.
+            Откройте KINOSOTA прямо сейчас или установите приложение
+            на Android TV.
+        </div>
+
+        <div class="actions">
+            <a class="button primary"
+               href="#"
+               onclick="openKinosota(event);">
+                ВОЙТИ В KINOSOTA
+            </a>
+
+            <a class="button"
+               href="#">
+                УСТАНОВИТЬ НА ANDROID TV
+            </a>
+        </div>
+    </div>
+
+    <div class="info">
+        <div class="info-title">KINOSOTA TV</div>
+        <div class="info-text">
+            Единая точка входа для телевизора, веб-доступа
+            и Android TV приложения.
+        </div>
+    </div>
 
 </div>
 
 <script>
+var KINOSOTA_APP_URL = "https://www.kinosota.devs.surf/app";
+
+function openKinosota(event) {
+    if (event) {
+        event.preventDefault();
+    }
+    window.location.href = KINOSOTA_APP_URL;
+}
+
 function exitToRootApp() {
     window.history.go(1 - window.history.length);
 }
