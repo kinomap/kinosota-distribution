@@ -2,7 +2,6 @@
   "headline": "KINOSOTA",
   "menu": [
     {
-      "id": "kinosota-home",
       "label": "OPEN KINOSOTA",
       "data": {
         "pages": [
@@ -10,6 +9,7 @@
             "items": [
               {
                 "type": "button",
+                "layout": "0,0,12,6",
                 "label": "KINOSOTA",
                 "action": "link:https://www.kinosota.devs.surf"
               }
