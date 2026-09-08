@@ -1,6 +1,7 @@
 {
   "name": "KINOSOTA",
-  "version": "1.0.0",
+  "version": "1.0.1",
+  "cache": false,
   "type": "pages",
   "headline": "KINOSOTA",
   "pages": [
