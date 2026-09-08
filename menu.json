@@ -1,0 +1,13 @@
+{
+  "id": "kinosota",
+  "type": "menu",
+  "title": "KINOSOTA",
+  "items": [
+    {
+      "id": "kinosota-home",
+      "type": "default",
+      "title": "KINOSOTA",
+      "action": "content://www.kinosota.devs.surf"
+    }
+  ]
+}
