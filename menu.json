@@ -1,13 +1,22 @@
 {
-  "id": "kinosota",
-  "type": "menu",
-  "title": "KINOSOTA",
-  "items": [
+  "headline": "KINOSOTA",
+  "menu": [
     {
       "id": "kinosota-home",
-      "type": "default",
-      "title": "KINOSOTA",
-      "action": "content://www.kinosota.devs.surf"
+      "label": "KINOSOTA",
+      "data": {
+        "pages": [
+          {
+            "items": [
+              {
+                "type": "button",
+                "label": "OPEN KINOSOTA",
+                "action": "link:https://www.kinosota.devs.surf"
+              }
+            ]
+          }
+        ]
+      }
     }
   ]
 }
