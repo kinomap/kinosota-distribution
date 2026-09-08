@@ -3,313 +3,295 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KINOSOTA — Ваше кино</title>
-  <style>
-    :root {
-      --bg: #07080c;
-      --panel: rgba(18, 20, 28, 0.84);
-      --text: #ffffff;
-      --muted: #a8adba;
-      --line: rgba(255,255,255,0.10);
-      --accent: #ffb800;
-      --accent-2: #ff6a00;
-    }
+  <title>KINOSOTA</title>
 
-    * { box-sizing: border-box; }
+  <!--
+    TV / MSX compatibility version.
+    Intentionally uses old, widely supported CSS:
+    no CSS variables, clamp(), flexbox, gradients, backdrop-filter,
+    transitions or other modern browser features.
+  -->
 
+  <style type="text/css">
     html, body {
       margin: 0;
+      padding: 0;
+      width: 100%;
       min-height: 100%;
-      background: var(--bg);
-      color: var(--text);
+      background: #080a10;
+      color: #ffffff;
       font-family: Arial, Helvetica, sans-serif;
     }
 
     body {
       min-height: 100vh;
-      overflow-x: hidden;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      z-index: -2;
-      background:
-        radial-gradient(circle at 75% 18%, rgba(255, 130, 0, .20), transparent 34%),
-        radial-gradient(circle at 18% 72%, rgba(255, 190, 0, .10), transparent 30%),
-        linear-gradient(135deg, #090a0f 0%, #10131c 48%, #07080c 100%);
-    }
-
-    body::after {
-      content: "";
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      background: linear-gradient(
-        to bottom,
-        rgba(7,8,12,.12) 0%,
-        rgba(7,8,12,.18) 45%,
-        rgba(7,8,12,.94) 100%
-      );
-      pointer-events: none;
     }
 
     .page {
-      width: min(1180px, 100%);
-      min-height: 100vh;
+      width: 92%;
+      max-width: 1180px;
       margin: 0 auto;
-      padding: 34px 48px 28px;
-      display: flex;
-      flex-direction: column;
+      padding-top: 28px;
+      padding-bottom: 28px;
     }
 
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
+    .top {
+      width: 100%;
+      height: 58px;
     }
 
     .logo {
-      font-size: clamp(30px, 4vw, 48px);
-      font-weight: 900;
-      letter-spacing: .12em;
+      float: left;
+      font-size: 42px;
+      line-height: 52px;
+      font-weight: bold;
+      letter-spacing: 5px;
     }
 
-    .badge {
-      padding: 9px 15px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      color: var(--muted);
-      background: rgba(255,255,255,.04);
-      font-size: 13px;
-      letter-spacing: .08em;
-      text-transform: uppercase;
+    .back {
+      float: right;
+      display: block;
+      padding: 13px 20px;
+      border: 2px solid #7185ff;
+      background: #151a2b;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 17px;
+      font-weight: bold;
+      border-radius: 8px;
     }
 
-    .top-back {
-      padding: 12px 18px;
-      border: 2px solid rgba(255,255,255,.22);
-      border-radius: 10px;
-      color: #fff;
-      background: rgba(255,255,255,.06);
-      font-family: inherit;
-      font-size: 15px;
-      font-weight: 800;
-      letter-spacing: .03em;
-      cursor: pointer;
-    }
-
-    .top-back:hover,
-    .top-back:focus {
+    .back:focus,
+    .back:hover {
+      background: #25305a;
+      border-color: #ffffff;
       outline: none;
-      border-color: #fff;
-      transform: translateY(-1px);
     }
 
-    main {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      padding: 50px 0;
+    .clear {
+      clear: both;
     }
 
     .hero {
+      margin-top: 85px;
       width: 100%;
-      max-width: 930px;
     }
 
     .eyebrow {
-      color: var(--accent);
-      font-size: 14px;
-      font-weight: 800;
-      letter-spacing: .14em;
-      text-transform: uppercase;
+      color: #ffb800;
+      font-size: 16px;
+      font-weight: bold;
+      letter-spacing: 2px;
       margin-bottom: 18px;
     }
 
     h1 {
       margin: 0;
+      padding: 0;
       max-width: 850px;
-      font-size: clamp(46px, 7.5vw, 88px);
-      line-height: .98;
-      letter-spacing: -.04em;
+      color: #ffffff;
+      font-size: 58px;
+      line-height: 1.05;
+      font-weight: bold;
     }
 
     .lead {
+      width: 70%;
       max-width: 720px;
-      margin: 28px 0 34px;
-      color: var(--muted);
-      font-size: clamp(18px, 2.2vw, 23px);
-      line-height: 1.5;
+      margin-top: 24px;
+      margin-bottom: 30px;
+      color: #c1c6d1;
+      font-size: 22px;
+      line-height: 1.45;
     }
 
     .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
+      margin-top: 20px;
     }
 
     .button {
-      min-width: 280px;
-      min-height: 64px;
-      padding: 18px 28px;
-      border-radius: 13px;
-      border: 2px solid transparent;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
+      display: inline-block;
+      width: 310px;
+      padding: 20px 18px;
+      margin-right: 12px;
+      margin-bottom: 12px;
+      border-radius: 9px;
+      text-align: center;
       text-decoration: none;
-      font-size: 19px;
-      font-weight: 900;
-      letter-spacing: .02em;
+      font-size: 20px;
+      font-weight: bold;
       cursor: pointer;
-      transition: transform .15s ease, opacity .15s ease, border-color .15s ease;
-      font-family: inherit;
     }
 
     .primary {
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      color: #0a0a0c;
+      background: #ffb800;
+      color: #080a10;
+      border: 2px solid #ffb800;
     }
 
     .secondary {
-      background: rgba(255,255,255,.055);
-      color: #fff;
-      border-color: var(--line);
-      backdrop-filter: blur(12px);
+      background: #171b27;
+      color: #ffffff;
+      border: 2px solid #596174;
     }
 
-    .button:hover,
-    .button:focus {
-      transform: translateY(-2px);
+    .button:focus,
+    .button:hover {
       outline: none;
-      opacity: .94;
-    }
-
-    .button:focus {
-      box-shadow: 0 0 0 4px rgba(255,255,255,.22);
+      border-color: #ffffff;
     }
 
     .info {
-      margin-top: 46px;
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-      max-width: 900px;
+      width: 100%;
+      margin-top: 42px;
     }
 
-    .info-card {
-      min-height: 130px;
-      padding: 22px;
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      background: var(--panel);
-      backdrop-filter: blur(14px);
+    .info-box {
+      display: inline-block;
+      vertical-align: top;
+      width: 29%;
+      min-height: 105px;
+      margin-right: 1.5%;
+      padding: 20px;
+      border: 1px solid #303747;
+      border-radius: 10px;
+      background: #11151e;
     }
 
-    .info-card strong {
+    .info-box.last {
+      margin-right: 0;
+    }
+
+    .info-title {
       display: block;
-      margin-bottom: 9px;
+      margin-bottom: 10px;
+      color: #ffffff;
       font-size: 18px;
+      font-weight: bold;
     }
 
-    .info-card span {
-      color: var(--muted);
+    .info-text {
+      color: #aeb5c3;
       font-size: 15px;
       line-height: 1.45;
     }
 
-    footer {
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      color: #676d79;
+    .footer {
+      margin-top: 45px;
+      padding-top: 18px;
+      border-top: 1px solid #242936;
+      color: #697180;
       font-size: 13px;
-      padding-top: 20px;
     }
 
-    @media (max-width: 760px) {
-      .page { padding: 26px 22px 22px; }
-      main { padding: 38px 0; }
-      .info { grid-template-columns: 1fr; }
-      .actions { flex-direction: column; }
-      .button { width: 100%; }
-      footer { flex-direction: column; }
+    @media screen and (max-width: 760px) {
+      .page {
+        width: 88%;
+      }
+
+      .logo {
+        font-size: 32px;
+        letter-spacing: 3px;
+      }
+
+      .hero {
+        margin-top: 55px;
+      }
+
+      h1 {
+        font-size: 42px;
+      }
+
+      .lead {
+        width: 100%;
+      }
+
+      .button {
+        width: 90%;
+        margin-right: 0;
+      }
+
+      .info-box {
+        display: block;
+        width: auto;
+        margin-right: 0;
+        margin-bottom: 12px;
+      }
     }
   </style>
 </head>
+
 <body>
   <div class="page">
-    <header>
+
+    <div class="top">
       <div class="logo">KINOSOTA</div>
-      <button class="top-back" type="button" onclick="exitToRootApp()">
-        ← НАЗАД В MSX
-      </button>
-    </header>
 
-    <main>
-      <section class="hero">
-        <div class="eyebrow">Ваше кино. Ваша коллекция.</div>
+      <button
+        class="back"
+        type="button"
+        onclick="exitToRootApp()"
+      >&#8592; НАЗАД В MSX</button>
 
-        <h1>Добро пожаловать в KINOSOTA</h1>
+      <div class="clear"></div>
+    </div>
 
-        <p class="lead">
-          Смотрите фильмы, продолжайте просмотр и открывайте свою персональную
-          коллекцию — прямо в браузере или на Android TV.
-        </p>
+    <div class="hero">
+      <div class="eyebrow">ВАШЕ КИНО. ВАША КОЛЛЕКЦИЯ.</div>
 
-        <div class="actions">
-          <a
-            id="openApp"
-            class="button primary"
-            href="#"
-            onclick="openKinosota(event)"
-          >
-            ВОЙТИ В KINOSOTA
-          </a>
+      <h1>Добро пожаловать в KINOSOTA</h1>
 
-          <a class="button secondary" href="#">
-            УСТАНОВИТЬ НА ANDROID TV
-          </a>
+      <div class="lead">
+        Смотрите фильмы, продолжайте просмотр и открывайте свою
+        персональную коллекцию — прямо в браузере или на Android TV.
+      </div>
 
+      <div class="actions">
+        <!-- Заменим URL, когда production Web App будет готов. -->
+        <a
+          class="button primary"
+          href="https://www.kinosota.devs.surf/app"
+        >ВОЙТИ В KINOSOTA</a>
+
+        <!-- Заменим # на URL APK после первого релиза. -->
+        <a
+          class="button secondary"
+          href="#"
+        >УСТАНОВИТЬ НА ANDROID TV</a>
+      </div>
+
+      <div class="info">
+        <div class="info-box">
+          <span class="info-title">Веб-доступ</span>
+          <span class="info-text">
+            Вход в KINOSOTA без установки приложения.
+          </span>
         </div>
 
-        <div class="info">
-          <div class="info-card">
-            <strong>Веб-доступ</strong>
-            <span>Вход в KINOSOTA без установки приложения.</span>
-          </div>
-
-          <div class="info-card">
-            <strong>Приложение для Android TV</strong>
-            <span>Установите приложение один раз и запускайте KINOSOTA прямо с главного экрана телевизора.</span>
-          </div>
-
-          <div class="info-card">
-            <strong>Безопасное подключение</strong>
-            <span>Соединение с сервисом проходит через защищённую HTTPS-точку доступа.</span>
-          </div>
+        <div class="info-box">
+          <span class="info-title">Android TV</span>
+          <span class="info-text">
+            Установите приложение один раз и запускайте KINOSOTA
+            прямо с главного экрана телевизора.
+          </span>
         </div>
-      </section>
-    </main>
 
-    <footer>
-      <span>KINOSOTA</span>
-      <span>© 2026 KINOSOTA</span>
-    </footer>
+        <div class="info-box last">
+          <span class="info-title">Безопасное подключение</span>
+          <span class="info-text">
+            Подключение к сервису проходит через защищённую HTTPS-точку доступа.
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      KINOSOTA &nbsp; | &nbsp; 2026
+    </div>
+
   </div>
 
-  <script>
-    // Публичный URL Web App. Backend/private IP здесь никогда не указывается.
-    const KINOSOTA_APP_URL = "https://www.kinosota.devs.surf/app";
-
-    function openKinosota(event) {
-      event.preventDefault();
-      window.location.href = KINOSOTA_APP_URL;
-    }
-
+  <script type="text/javascript">
     function exitToRootApp() {
       window.history.go(1 - window.history.length);
     }
