@@ -1,6 +1,6 @@
 {
   "name": "KINOSOTA",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "cache": false,
   "type": "pages",
   "headline": "KINOSOTA",
@@ -10,7 +10,8 @@
         {
           "id": "open-kinosota",
           "type": "button",
-          "layout": "0,0,12,6",
+          "layout": "0,5,12,1",
+          "focus": true,
           "label": "OPEN KINOSOTA",
           "action": "link:https://www.kinosota.devs.surf"
         }
