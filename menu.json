@@ -3,14 +3,14 @@
   "menu": [
     {
       "id": "kinosota-home",
-      "label": "KINOSOTA",
+      "label": "OPEN KINOSOTA",
       "data": {
         "pages": [
           {
             "items": [
               {
                 "type": "button",
-                "label": "OPEN KINOSOTA",
+                "label": "KINOSOTA",
                 "action": "link:https://www.kinosota.devs.surf"
               }
             ]
