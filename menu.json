@@ -1,9 +1,12 @@
 {
+  "name": "KINOSOTA",
+  "version": "1.0.1",
+  "cache": false,
   "headline": "KINOSOTA",
   "menu": [
     {
       "label": "OPEN KINOSOTA",
-      "data": "https://www.kinosota.devs.surf/msx/content.json"
+      "data": "https://www.kinosota.devs.surf/content.json"
     }
   ]
 }
