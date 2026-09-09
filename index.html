@@ -9,8 +9,8 @@ html, body {
     padding: 0;
     width: 100%;
     height: 100%;
-    background: #000000;
-    color: #ffffff;
+    background: #0b1522;
+    color: #e2e8f0;
     font-family: Arial, Helvetica, sans-serif;
     overflow: hidden;
 }
@@ -19,65 +19,65 @@ html, body {
     position: relative;
     width: 960px;
     margin: 0 auto;
-    padding: 20px 20px 0 20px;
+    padding: 16px 20px 0 20px;
     box-sizing: border-box;
     text-align: left;
 }
 
 .back {
     position: absolute;
-    top: 20px;
+    top: 16px;
     right: 20px;
     display: inline-block;
-    padding: 10px 18px;
-    border: 2px solid #3b9cff;
-    background: #102b4d;
-    color: #ffffff;
-    font-size: 16px;
+    padding: 10px 20px;
+    border: 2px solid #2a4463;
+    background: #132235;
+    color: #e2e8f0;
+    font-size: 22px;
     font-weight: bold;
     text-decoration: none;
 }
 
 .back:hover,
 .back:focus {
-    background: #174a7d;
-    border-color: #75bdff;
+    background: #1c324e;
+    border-color: #58a6ff;
     outline: none;
 }
 
 .brand {
-    font-size: 36px;
+    font-size: 42px;
     font-weight: bold;
     letter-spacing: 4px;
-    color: #ffffff;
+    color: #e2e8f0;
 }
 
 .tagline {
     margin-top: 4px;
-    font-size: 18px;
-    color: #9bdcff;
+    font-size: 20px;
+    color: #94a3b8;
 }
 
 .intro {
-    margin-top: 18px;
+    margin-top: 14px;
     text-align: center;
 }
 
 .intro-title {
-    font-size: 24px;
+    font-size: 28px;
     font-weight: bold;
-    color: #ffffff;
+    color: #e2e8f0;
 }
 
 .intro-text {
     margin-top: 4px;
-    font-size: 16px;
-    color: #b8cce2;
+    font-size: 22px;
+    color: #94a3b8;
 }
 
 .cards {
     width: 100%;
-    margin: 20px auto 0 auto;
+    margin: 16px auto 0 auto;
     text-align: center;
 }
 
@@ -85,44 +85,51 @@ html, body {
     display: inline-block;
     vertical-align: top;
     width: 220px;
-    margin: 0 30px;
+    margin: 0 35px;
     text-decoration: none;
-    color: #ffffff;
+    color: #e2e8f0;
     outline: none;
 }
 
 .card-image {
     display: block;
     width: 220px;
-    height: 276px;
-    border: 2px solid #31587d;
-    background: #000000;
+    border: 3px solid #23384f;
+    background: #060d16;
+}
+
+.card-image.app-image {
+    height: 220px;
+}
+
+.card-image.tv-image {
+    height: 277px;
 }
 
 .card:hover .card-image,
 .card:focus .card-image {
-    border-color: #56b4ff;
+    border-color: #58a6ff;
 }
 
 .card-title {
     margin-top: 10px;
-    font-size: 18px;
+    font-size: 24px;
     font-weight: bold;
-    color: #ffffff;
+    color: #e2e8f0;
 }
 
 .card-text {
     margin-top: 4px;
-    font-size: 14px;
-    color: #9bdcff;
+    font-size: 20px;
+    color: #94a3b8;
 }
 
 .footer {
-    margin-top: 18px;
+    margin-top: 16px;
     text-align: center;
-    font-size: 13px;
+    font-size: 18px;
     letter-spacing: 4px;
-    color: #7894ad;
+    color: #64748b;
 }
 </style>
 </head>
@@ -150,10 +157,10 @@ html, body {
         <a class="card"
            href="https://www.kinosota.devs.surf/app">
 
-            <img class="card-image"
+            <img class="card-image app-image"
                  src="img/kinosota_app.jpg"
                  width="220"
-                 height="276"
+                 height="220"
                  alt="KINOSOTA">
 
             <div class="card-title">ВОЙТИ В KINOSOTA</div>
@@ -166,10 +173,10 @@ html, body {
            href="#"
            onclick="installAndroidTV(event); return false;">
 
-            <img class="card-image"
+            <img class="card-image tv-image"
                  src="img/kinosota_android_tv.jpg"
                  width="220"
-                 height="276"
+                 height="277"
                  alt="KINOSOTA Android TV">
 
             <div class="card-title">УСТАНОВИТЬ НА ANDROID TV</div>
